@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vehicle Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #00698f;
+            margin-bottom: 20px;
+        }
+        
+        form {
+            width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        
+        input[type="text"], input[type="number"] {
+            width: 60%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button[type="submit"] {
+            width: 30%;
+            height: 30px;
+            background-color: #337ab7;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #23527c;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Vehicle Details</h2>
+    <form th:action="@{/vehicle}" th:object="${vehicle}" method="post">
+        <label for="brand">Brand:</label>
+        <input type="text" th:field="*{brand}" required /><br/>
+        <label for="model">Model:</label>
+        <input type="text" th:field="*{model}" required /><br/>
+        <label for="year">Year:</label>
+        <input type="number" th:field="*{year}" required /><br/>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

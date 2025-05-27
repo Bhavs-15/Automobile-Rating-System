@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome</title>
+    <style>
+        body {
+            background-image: url('image/AMRSI.jpeg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #00698f;
+            margin-bottom: 20px;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .links {
+            margin-top: 20px;
+        }
+        
+        .links a {
+            text-decoration: none;
+            color: #337ab7;
+            margin: 0 10px;
+        }
+        
+        .links a:hover {
+            color: #23527c;
+        }
+        
+        .hello {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Automobile User Ratings System</h1>
+    <div th:if="${session.user == null}">
+        <a href="/login">Login</a> |
+        <a href="/register">Register</a>
+    </div>
+    <div th:if="${session.user != null}">
+        <p>Hello, <span th:text="${session.user.username}">User</span>!</p>
+        <a href="/home">Go to Home</a> |
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>
